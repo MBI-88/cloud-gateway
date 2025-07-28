@@ -92,6 +92,15 @@ services:
       - ms-search
       - ms-operator
 
+  frontend-app:
+    image: mbi8807/frontend-app:latest
+    container_name: frontend-app
+    ports:
+      - "5050:5050"
+    networks:
+      - ms-project
+    depends_on:
+      - ms-cloud-gateway
 
 networks:
   ms-project:

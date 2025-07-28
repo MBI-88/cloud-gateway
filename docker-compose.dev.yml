@@ -70,6 +70,20 @@ services:
       - ms-eureka
       - ms-search
       - ms-operator
+  
+  frontend-app:
+    build:
+      context: ./../inventario-front/
+      dockerfile: Dockerfile
+    container_name: frontend-app
+    env_file:
+      - ./../inventario-front/.env.production
+    ports:
+      - "5050:5050"
+    networks:
+      - ms-project
+    depends_on:
+      - ms-cloud-gateway
 
 
 networks:
